@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `fooddb`.`user` (
   `first_name` VARCHAR(20) NOT NULL,
   `last_name` VARCHAR(20) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
+  `reset_password_id` VARCHAR(32),
   PRIMARY KEY (`email`)
 );
 

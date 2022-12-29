@@ -8,6 +8,10 @@
         <servlet-name>SignupServlet</servlet-name>
         <servlet-class>servlets.SignupServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <servlet-class>servlets.ForgotPasswordServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>JournalServlet</servlet-name>
         <url-pattern>/journal</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>SignupServlet</servlet-name>
         <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <url-pattern>/forgotPassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
