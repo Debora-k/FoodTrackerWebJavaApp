@@ -16,7 +16,7 @@
             <input name="password" type="password"><br>
             <input type="submit" value="Submit">
         </form>
-        <a href="">Forgot password?</a>
+        <a href="forgotPassword">Forgot password?</a>
         <a href="signup">Sign up</a>
         <c:if test="${message != null}">
             <script>

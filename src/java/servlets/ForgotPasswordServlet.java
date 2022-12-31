@@ -63,8 +63,8 @@ public class ForgotPasswordServlet extends HttpServlet {
         }
         
         try {
-            final String username = "<email>";
-            final String password = "<password>";
+            String username = "foodtracker@gmail.com";
+            String password = "";
 
             Properties props = new Properties();
             props.put("mail.transport.protocol", "smtps");
@@ -76,10 +76,12 @@ public class ForgotPasswordServlet extends HttpServlet {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            
+            // SUBJECT
             message.setSubject("Reset Password Link");
-
-            String content = "Click on this link to reset your password: http://localhost:8080/FoodTracker/forgotPassword?id=" + resetPasswordId;
-
+            
+            // CONTENT
+            String content = "Click on this link to reset your password: http://localhost:8080/FoodTracker/changePassword?id=" + resetPasswordId;
             message.setText(content);
             
             Transport transport = session.getTransport();
