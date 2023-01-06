@@ -55,8 +55,10 @@ public class JournalServlet extends HttpServlet {
             request.setAttribute("foods", foods);
         } catch (ClassNotFoundException ex) {
             // did not find JDBC driver
+            ex.printStackTrace();
         } catch (SQLException ex) {
             // SQL exception
+            ex.printStackTrace();
         }
         
         
@@ -84,6 +86,7 @@ public class JournalServlet extends HttpServlet {
                 PreparedStatement statement2 = con.prepareStatement(query2);
                 ResultSet rs2 = statement2.executeQuery();
                 
+                rs2.next();
                 String food_description = rs2.getString("food_description");
                
                 
@@ -91,6 +94,7 @@ public class JournalServlet extends HttpServlet {
                 PreparedStatement statement3 = con.prepareStatement(query3);
                 ResultSet rs3 = statement3.executeQuery();
                 
+                rs3.next();
                 double calories = rs3.getDouble("nutrient_value");
                 
                 FoodRecord foodRecord = new FoodRecord();
@@ -106,8 +110,10 @@ public class JournalServlet extends HttpServlet {
         request.setAttribute("foodRecords", foodRecords);
         } catch (ClassNotFoundException ex) {
             // did not find JDBC driver
+            ex.printStackTrace();
         } catch (SQLException ex) {
             // SQL exception
+            ex.printStackTrace();
         }
         
         getServletContext().getRequestDispatcher("/WEB-INF/journal.jsp").forward(request, response);
@@ -207,6 +213,7 @@ public class JournalServlet extends HttpServlet {
                 PreparedStatement statement2 = con.prepareStatement(query2);
                 ResultSet rs2 = statement2.executeQuery();
                 
+                rs2.next();
                 String food_description = rs2.getString("food_description");
                
                 
@@ -214,6 +221,7 @@ public class JournalServlet extends HttpServlet {
                 PreparedStatement statement3 = con.prepareStatement(query3);
                 ResultSet rs3 = statement3.executeQuery();
                 
+                rs3.next();
                 double calories = rs3.getDouble("nutrient_value");
                 
                 FoodRecord foodRecord = new FoodRecord();
@@ -231,6 +239,7 @@ public class JournalServlet extends HttpServlet {
             // did not find JDBC driver
         } catch (SQLException ex) {
             // SQL exception
+            ex.printStackTrace();
         }
         
         getServletContext().getRequestDispatcher("/WEB-INF/journal.jsp").forward(request, response);

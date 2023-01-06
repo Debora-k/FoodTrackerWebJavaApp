@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Record your food journal!</h1>
-        <form>
+        <form method="POST" action="journal">
             <label>Food: </label>
             <select name="food">
                 <c:forEach items="${foods}" var="foodjsp">

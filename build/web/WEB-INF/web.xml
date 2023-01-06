@@ -16,6 +16,10 @@
         <servlet-name>ChangePasswordServlet</servlet-name>
         <servlet-class>servlets.ChangePasswordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NutritionServlet</servlet-name>
+        <servlet-class>servlets.NutritionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>JournalServlet</servlet-name>
         <url-pattern>/journal</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ChangePasswordServlet</servlet-name>
         <url-pattern>/changePassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NutritionServlet</servlet-name>
+        <url-pattern>/nutrition</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
