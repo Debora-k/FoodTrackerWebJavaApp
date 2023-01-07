@@ -11,6 +11,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nutrition Page</title>
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.0.2/index.global.min.js'></script>
+        <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            dateClick: function(info) {
+                window.location.assign('nutrition?date=' + info.dateStr);
+          },
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+        calendar.select('${selectedDate}');
+      });
+
+        </script>
     </head>
     <body>
         <h1>Nutrition</h1>
@@ -19,6 +35,7 @@
             <input type="date" name="date">
             <input type="submit" value="Search">
         </form>
+        <div id='calendar'></div>
         <table>
             <tr>
                 <th>Food</th>

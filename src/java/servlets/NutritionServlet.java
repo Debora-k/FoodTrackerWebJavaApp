@@ -26,6 +26,7 @@ public class NutritionServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String date = request.getParameter("date");
+        request.setAttribute("selectedDate", date);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); // load MySQL JDBC driver
             
