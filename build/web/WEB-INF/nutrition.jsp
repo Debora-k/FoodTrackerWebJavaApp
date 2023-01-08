@@ -29,6 +29,10 @@
         </script>
     </head>
     <body>
+        <a href="journal">Journal</a> | 
+        <a href="nutrition">Nutrition</a> | 
+        <a href="logout">Logout</a>
+        <br>
         <h1>Nutrition</h1>
         <form method="GET" action="nutrition">
             <label>Date: </label>

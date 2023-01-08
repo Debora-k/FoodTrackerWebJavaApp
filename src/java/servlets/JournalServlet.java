@@ -42,8 +42,11 @@ public class JournalServlet extends HttpServlet {
             String url = "jdbc:mysql://localhost:3306/fooddb";
             Connection con = DriverManager.getConnection(url,
                     "root", "password");
-            
-            String query = "SELECT food_description FROM food";
+            String search = request.getParameter("search");
+            if (search == null) {
+                search = "";
+            }
+            String query = "SELECT food_description FROM food WHERE food_description LIKE '%" + search + "%'";
             PreparedStatement statement = con.prepareStatement(query);
 
             ResultSet rs = statement.executeQuery(); // run the SQL
@@ -106,8 +109,21 @@ public class JournalServlet extends HttpServlet {
                 foodRecords.add(foodRecord);
                 
             }
-            
-        request.setAttribute("foodRecords", foodRecords);
+            String typeOfSort = request.getParameter("sort");
+            if(typeOfSort == null) {
+                typeOfSort = "Date";
+            }
+            request.setAttribute("sort", typeOfSort);
+            if(typeOfSort.equals("Date")) {
+                foodRecords.sort(new DateComparator());
+            } else if(typeOfSort.equals("Food")) {
+                foodRecords.sort(new FoodComparator());
+            } else if(typeOfSort.equals("Servings")) {
+                foodRecords.sort(new ServingsComparator());
+            } else if(typeOfSort.equals("Calories")) {
+                foodRecords.sort(new CaloriesComparator());
+            }
+            request.setAttribute("foodRecords", foodRecords);
         } catch (ClassNotFoundException ex) {
             // did not find JDBC driver
             ex.printStackTrace();

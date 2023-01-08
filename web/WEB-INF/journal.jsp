@@ -13,7 +13,18 @@
         <title>Journal Page</title>
     </head>
     <body>
+        <a href="journal">Journal</a> | 
+        <a href="nutrition">Nutrition</a> | 
+        <a href="logout">Logout</a>
+        <br>
         <h1>Record your food journal!</h1>
+        <form method="GET" action="journal">
+            <label>Search for food: </label>
+            <input type="text" name="search">
+            <input type="submit" value="Search">
+        </form>
+        <br>
+        <br>
         <form method="POST" action="journal">
             <label>Food: </label>
             <select name="food">
@@ -33,6 +44,16 @@
         <br>
         <br>
         <h2>My Food</h2>
+        <form method="GET">
+            <label>Sort By: </label>
+            <select name="sort">
+                <option <c:if test="${sort eq 'Date'}">selected</c:if>>Date</option>
+                <option <c:if test="${sort eq 'Food'}">selected</c:if>>Food</option>
+                <option <c:if test="${sort eq 'Servings'}">selected</c:if>>Servings</option>
+                <option <c:if test="${sort eq 'Calories'}">selected</c:if>>Calories</option>
+            </select>
+            <input type="submit" value="Sort">
+        </form>
         <table>
             <tr>
                 <th>Date</th>
